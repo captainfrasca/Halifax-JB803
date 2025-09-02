@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halifax JB 803 Crew Database</title>
+    <title>Halifax JB 803 Crew Database - Complete Archive</title>
     <style>
         * {
             margin: 0;
@@ -307,25 +307,25 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 Halifax JB 803 Crew Database</h1>
-            <p>WOII Complete Archive • Sgt Hannam (1383305) • Sgt Crawford (634710) • Sgt Scarff (R.95040) • Sgt Shepherd (929961) • RAF Squadron 77 • 1 Mei 1943</p>
+            <h1>📚 Halifax JB 803 Crew Database - Complete Archive</h1>
+            <p>WOII Complete Archive • Complete Halifax JB 803 Crash Records • 1 Mei 1943 • Muiden Cemetery, Holland</p>
         </div>
 
         <div class="stats">
             <div class="stat-card documents">
-                <div class="stat-number" id="total-count">62</div>
+                <div class="stat-number" id="total-count">95</div>
                 <div>Totaal Documenten</div>
             </div>
             <div class="stat-card letters">
-                <div class="stat-number" id="letter-count">26</div>
+                <div class="stat-number" id="letter-count">35</div>
                 <div>Brieven & Telegrammen</div>
             </div>
             <div class="stat-card photos">
-                <div class="stat-number" id="photo-count">4</div>
+                <div class="stat-number" id="photo-count">5</div>
                 <div>Foto's & Memorialen</div>
             </div>
             <div class="stat-card forms">
-                <div class="stat-number" id="form-count">32</div>
+                <div class="stat-number" id="form-count">55</div>
                 <div>Officiële Formulieren</div>
             </div>
         </div>
@@ -359,9 +359,9 @@
     </div>
 
     <script>
-        // Database van documenten
+        // Volledige database van alle Halifax JB 803 documenten
         const documentsData = [
-            // HANNAM DOCUMENTS
+            // HANNAM DOCUMENTS (1-17)
             {
                 id: 1,
                 type: 'letter',
@@ -372,7 +372,7 @@
                 location: '2 Seville Street',
                 reference: 'P.403627/43/S.14 Cas.B2.',
                 summary: 'Officiële bevestiging dat Sergeant Leon Hannam (1383305) begraven ligt in Muiden General Cemetery, Holland. Vader werd in mei 1944 voor het eerst op de hoogte gesteld.',
-                keywords: 'overlijden, begraven, muiden, holland, vader, mei 1944'
+                keywords: 'hannam, overlijden, begraven, muiden, holland, vader, mei 1944'
             },
             {
                 id: 2,
@@ -383,7 +383,7 @@
                 to: 'Sirs',
                 location: '41 Theberton Street, Islington',
                 summary: 'Bernadette vraagt om hulp bij het vinden van informatie over haar vriend Leon Hannam. Ze schrijft dat ze weet dat hij 20 jaar oud was en vermist wordt sinds 1 mei 1943.',
-                keywords: 'bernadette, vriend, vermist, 20 jaar oud, 1 mei 1943'
+                keywords: 'hannam, bernadette, vriend, vermist, 20 jaar oud, 1 mei 1943'
             },
             {
                 id: 3,
@@ -394,20 +394,356 @@
                 to: 'Mrs. Bernadette Sammarco',
                 reference: 'P-7/8-41A',
                 summary: 'Brief waarin wordt uitgelegd dat Leon Hannam een Engelsman was in de Royal Air Force, vliegend in een Royal Air Force aircraft. De brief werd doorgestuurd naar de juiste afdeling.',
-                keywords: 'royal air force, engelsman, aircraft, doorgestuurd'
+                keywords: 'hannam, royal air force, engelsman, aircraft, doorgestuurd'
             },
-            // SHEPHERD DOCUMENTS
             {
-                id: 53,
+                id: 4,
+                type: 'record',
+                title: 'RAF Service Record - Hannam',
+                date: '5 maart 1943',
+                servicenumber: '1383305',
+                name: 'HANNAM Leon',
+                rank: 'SGT',
+                unit: 'R.A.F.(V.R.)',
+                location: 'MUIDEN GEN, HOLLAND 89',
+                burial: 'Grave 82',
+                nextofkin: 'L. HANNAM ESQ. 33 PARKFIELD STREET ISLINGTON LONDON N.1',
+                summary: 'RAF service record voor Sergeant Leon Hannam (1383305). Begraven in Muiden General Cemetery, Holland, graf 82. Next of kin: L. Hannam in Parkfield Street, Islington.',
+                keywords: 'hannam, 1383305, service record, muiden, holland, parkfield street, islington'
+            },
+            {
+                id: 5,
+                type: 'telegram',
+                title: 'Missing Believed Killed Telegram - Hannam',
+                date: '18 juni 1943',
+                to: 'L. HANNAM ESQ, 33 Parkfield St, Islington London N1',
+                from: 'Air Ministry Kingsway',
+                summary: 'Telegram met mededeling dat Sergeant Leon Hannam wordt vermist en vermoedelijk omgekomen is op 1/5/43 tijdens luchtoperaties. Uitdrukking van medeleven van de Air Council.',
+                keywords: 'hannam, telegram, missing believed killed, luchtoperaties, air council, 1 mei 1943'
+            },
+            {
+                id: 6,
+                type: 'letter',
+                title: 'Air Council Expression of Regret - Hannam',
+                date: '26 mei 1943',
+                from: 'Casualty Branch',
+                to: 'L. Hannam Esq.',
+                location: '33 Parkfield Street, Islington',
+                summary: 'Brief waarin de Air Council hun spijt uitdrukt over het feit dat Sergeant Leon Hannam vermist wordt na luchtoperaties op 30 april/1 mei 1943. Halifax aircraft waarin hij vloog als navigator/air bomber kwam niet terug.',
+                keywords: 'hannam, air council, halifax aircraft, navigator, air bomber, 30 april'
+            },
+            {
+                id: 7,
+                type: 'letter',
+                title: 'Confirmation of Death - Hannam',
+                date: '1 oktober 1943',
+                from: 'Director of Personal Services',
+                to: 'L. Hannam Esq.',
+                reference: 'P.403627/43/S.4.3.3',
+                summary: 'Bevestiging ontvangen van officiële Duitse bron dat Sergeant L. Hannam (1383305) is overleden. Details over plaats van begraving nog niet verstrekt, maar zullen later worden meegedeeld.',
+                keywords: 'hannam, bevestiging overlijden, duitse bron, plaats begraving'
+            },
+            {
+                id: 8,
+                type: 'letter',
+                title: 'Casualty Branch Notification - Hannam',
+                date: '22 mei 1944',
+                from: 'S.W. Wright, Director of Personal Services',
+                to: 'L. Hannam Esq.',
+                reference: 'P.403627/43/S.4.3.4',
+                location: '33 Parkfield Street, Islington',
+                summary: 'Brief aan vader van Leon Hannam waarin wordt meegedeeld dat zijn zoon Sergeant L. Hannam (RAF) begraven ligt in General Cemetery, Muiden, Holland. Graven genummerd 80 tot 85 in rij 1.',
+                keywords: 'hannam, casualty branch, vader, muiden cemetery, graven 80-85'
+            },
+            {
+                id: 9,
+                type: 'record',
+                title: 'German POW Record - Hannam',
+                date: '8 mei 1943',
+                summary: 'Duits krijgsgevangenen document (Nachlaßsachen des Sgt. Hannam) met persoonlijke bezittingen lijst. Bevat stempel "LUFTGAUKOMMANDO HOLLAND" gedateerd 8 MEI 1943.',
+                keywords: 'hannam, duitse document, krijgsgevangene, persoonlijke bezittingen, luftgaukommando, holland'
+            },
+            {
+                id: 10,
+                type: 'form',
+                title: 'German Prison Camp Record - Hannam',
+                date: '4 mei 1943',
+                prisoner: 'Hannam L.',
+                camp: 'Gefangenenlager: 5715',
+                nationality: 'Engla-e',
+                unit: 'Maschine Halifax',
+                material_number: '1383315',
+                summary: 'Duits gevangenenkamp formulier voor gevangene Hannam L., nationaliteit Engels, vliegtuig type Halifax.',
+                keywords: 'hannam, gevangenenkamp, halifax, engels, maschine'
+            },
+            {
+                id: 11,
+                type: 'telegram',
+                title: 'Records Gloucester Communication - Hannam',
+                date: '3 mei 1943',
+                from: 'Records Gloucester',
+                to: 'Air Ministry Kingsway',
+                reference: '1669/G2B/2441',
+                details: 'HANNAM (B) LEON, 1383305, SGT, NAV/A/B, 31/DEC/40, 7/NOV/20, ISLINGTON, 77 SQUADRON, RAFVR',
+                summary: 'Telegram met volledige persoonlijke details van Leon Hannam: geboortedatum 7 november 1920, dienst vanaf 31 december 1940, 77 Squadron, navigator/air bomber.',
+                keywords: 'hannam, persoonlijke details, 7 november 1920, 31 december 1940, navigator, 77 squadron'
+            },
+            {
+                id: 12,
+                type: 'form',
+                title: 'Air Ministry Minute Sheet - Hannam',
+                date: '3 juni 1943',
+                reference: 'P.403627/43',
+                summary: 'Interne Air Ministry notitie betreffende Sgt Leon Hannam. Vermeldt correspondentie en mogelijke verdere actie.',
+                keywords: 'hannam, air ministry, interne notitie, correspondentie'
+            },
+            {
+                id: 13,
+                type: 'form',
+                title: 'Casualty Action Sheet - Hannam',
+                date: 'Meerdere data 1943-1945',
+                reference: '503627',
+                summary: 'Administratief formulier dat de verschillende stappen bijhoudt in de casualty procedure: van vermist rapport tot bevestiging overlijden en notification aan familie.',
+                keywords: 'hannam, casualty procedure, administratie, vermist rapport'
+            },
+            {
+                id: 14,
+                type: 'record',
+                title: 'Analysis from Circumstantial Reports - Hannam',
+                date: '1 mei 1943',
+                aircraft: 'Halifax JB 803',
+                reference: 'P.403627/4',
+                summary: 'Het vliegtuig vertrok op de nacht van 30 april/1 mei 1943 voor operationele sortie. Vanaf vertrek van de basis is niets meer gehoord van het vliegtuig. Alle opvarenden vermist.',
+                keywords: 'hannam, halifax JB 803, operationele sortie, alle opvarenden vermist'
+            },
+            {
+                id: 15,
+                type: 'photo',
+                title: 'Begraafplaats Foto 1',
+                date: 'Onbekend',
+                summary: 'Zwart-wit foto van een begraafplaats met graven en bloemen, mogelijk Muiden General Cemetery waar Leon Hannam begraven ligt.',
+                keywords: 'begraafplaats, graven, bloemen, muiden, foto'
+            },
+            {
+                id: 16,
+                type: 'photo',
+                title: 'Begraafplaats Foto 2',
+                date: 'Onbekend',
+                summary: 'Tweede zwart-wit foto van de begraafplaats, toont meer grafstenen en de omgeving van Muiden General Cemetery.',
+                keywords: 'begraafplaats, grafstenen, omgeving, muiden, foto'
+            },
+            {
+                id: 17,
+                type: 'record',
+                title: 'International Red Cross Death List - Hannam',
+                date: '1943',
+                reference: '403627/43',
+                summary: 'Translated extract van officiële Duitse lijsten door International Red Cross. Toont bemanningsleden: Crawford, Parsons, Shepherd, Hannam, Watson, en Crew of Halifax shot down 1/5/43.',
+                keywords: 'hannam, international red cross, death list, translated extract, halifax shot down'
+            },
+
+            // CRAWFORD DOCUMENTS (18-34)
+            {
+                id: 18,
+                type: 'record',
+                title: 'RAF Service Record - Crawford',
+                date: '1 mei 1943',
+                servicenumber: '634710',
+                name: 'CRAWFORD Ian Douglas',
+                rank: 'SGT',
+                unit: '77 Squadron',
+                location: 'MUIDEN GEN, HOLLAND',
+                burial: 'Grave 80',
+                nextofkin: 'J. Crawford Esq, Selma, Taynuilt, Argyll, Scotland',
+                summary: 'RAF service record voor Sergeant Ian Douglas Crawford (634710), 77 Squadron. Begraven in Muiden General Cemetery, Holland, graf 80. Next of kin: J. Crawford in Selma, Taynuilt, Argyll, Scotland.',
+                keywords: 'crawford, 634710, 77 squadron, muiden, scotland, taynuilt, argyll'
+            },
+            {
+                id: 19,
+                type: 'letter',
+                title: 'Burial Location Notification - Crawford',
+                date: '30 april 1946',
+                from: 'Air Ministry',
+                to: 'Mr. Crawford',
+                reference: 'P.403627/43/P4/MR (2)',
+                location: '73-77 Oxford Street, London',
+                summary: 'Brief aan vader van Crawford waarin wordt meegedeeld dat zijn zoon Sergeant I.D. Crawford begraven ligt in graf nr. 80, rij 1, in General Cemetery Muiden. Regelingen worden getroffen voor correcte inscriptie.',
+                keywords: 'crawford, burial location, muiden cemetery, graf 80, oxford street'
+            },
+            {
+                id: 20,
+                type: 'letter',
+                title: 'Casualty Notification - Crawford',
+                date: '22 mei 1944',
+                from: 'S.W. Wright, Director of Personal Services',
+                to: 'J. Crawford Esq.',
+                location: 'Selma, Taynuilt, Argyll, Scotland',
+                summary: 'Officiële brief aan vader in Schotland waarin wordt meegedeeld dat Sergeant I.D. Crawford begraven ligt in General Cemetery Muiden, Holland. Graven genummerd 80-85 in rij 1.',
+                keywords: 'crawford, casualty notification, scotland, taynuilt, argyll, muiden cemetery'
+            },
+            {
+                id: 21,
+                type: 'letter',
+                title: 'Correspondence from John W. Stewart',
+                date: '3 maart 1944',
+                from: 'John W. Stewart, Solicitor Glasgow',
+                to: 'Air Ministry London',
+                location: '121 Bath Street, Glasgow',
+                summary: 'Brief van advocaat uit Glasgow die dankzegt voor informatie over Crawford en meldt dat kopie is doorgestuurd aan Mrs. Crawford.',
+                keywords: 'crawford, john stewart, solicitor, glasgow, bath street, mrs crawford'
+            },
+            {
+                id: 22,
+                type: 'letter',
+                title: 'Estate Duty Acknowledgment - Crawford',
+                date: '3 maart 1944',
+                from: 'John W. Stewart',
+                to: 'Air Ministry',
+                reference: 'A.630471',
+                summary: 'Bevestiging van advocaat betreffende Estate Duty remissie voor de overleden luchtman Sergeant I.D. Crawford.',
+                keywords: 'crawford, estate duty, john stewart, deceased, a630471'
+            },
+            {
+                id: 23,
+                type: 'letter',
+                title: 'Burial Details Request - Crawford',
+                date: '26 februari 1944',
+                from: 'Air Ministry',
+                to: 'John W. Stewart',
+                reference: 'P.403627/2/P.4.B.7',
+                summary: 'Brief waarin wordt meegedeeld dat geen details bekend zijn over de begraafplaats van Sergeant Ian D. Crawford. Belofte om te informeren zodra meer informatie beschikbaar komt.',
+                keywords: 'crawford, burial details, no information, john stewart'
+            },
+            {
+                id: 24,
+                type: 'letter',
+                title: 'Inquiry about Burial Place - Crawford',
+                date: '7 februari 1944',
+                from: 'John W. Stewart',
+                to: 'Air Ministry',
+                location: '121 Bath Street, Glasgow',
+                summary: 'Verzoek van advocaat namens Mrs. Crawford (Taynuilt) om informatie over de begraafplaats van haar zoon Sergeant Ian D. Crawford die omkwam in Duitsland op 30 april/1 mei.',
+                keywords: 'crawford, burial inquiry, mrs crawford taynuilt, germany, 30 april 1 mei'
+            },
+            {
+                id: 25,
+                type: 'letter',
+                title: 'Death Confirmation - Crawford',
+                date: '1 oktober 1943',
+                from: 'Air Ministry',
+                to: 'J. Crawford Esq.',
+                reference: 'P.403627/2/43/S.4.D.8',
+                location: 'Selma, Taynuilt, Argyll, Scotland',
+                summary: 'Bevestiging van officiële Duitse bron dat Sergeant I.D. Crawford (634710) is overleden. Begraafplaats details nog niet bekend maar zullen worden meegedeeld.',
+                keywords: 'crawford, death confirmation, german source, 634710, taynuilt scotland'
+            },
+            {
+                id: 26,
+                type: 'telegram',
+                title: 'Missing Believed Killed - Crawford',
+                date: '18 juni 1943',
+                to: 'J CRAWFORD ESQ, SELMA, TAYNUILT ARGYLL SCOTLAND',
+                from: 'Air Ministry Kingsway',
+                summary: 'Telegram aan foster son in Schotland met mededeling dat Sergeant Ian Douglas Crawford vermist wordt en vermoedelijk omgekomen op 1/5/43 tijdens luchtoperaties.',
+                keywords: 'crawford, telegram, missing believed killed, foster son, scotland, 1/5/43'
+            },
+            {
+                id: 27,
+                type: 'letter',
+                title: 'RAF Benevolent Fund Inquiry - Crawford',
+                date: '17 mei 1943',
+                from: 'RAF Benevolent Fund',
+                to: 'Air Ministry',
+                location: 'Eaton House, 14 Eaton Road, Hove Sussex',
+                reference: 'MJ/AMS 121/123',
+                summary: 'Verzoek van RAF Benevolent Fund om meer recente adressen van next-of-kin voor Sergeant Crawford I.D. (634710) en andere bemanningsleden.',
+                keywords: 'crawford, raf benevolent fund, next of kin addresses, 634710, hove sussex'
+            },
+            {
+                id: 28,
+                type: 'letter',
+                title: 'Personal Letter from Foster Father - Crawford',
+                date: '4 april 1943',
+                from: 'John Crawford',
+                to: 'Air Ministry Casualty Branch',
+                location: 'Selma, Taynuilt, Argyll, Scotland',
+                reference: 'P.403627/2/43/P.4.A.2',
+                summary: 'Persoonlijke brief van foster father waarin hij bedankt voor brief van 28 juli betreffende zijn missing son 634710 H.M. Sgt Ian Douglas Crawford. Vraagt om zorgvuldige administratie.',
+                keywords: 'crawford, foster father, john crawford, personal letter, missing son, careful records'
+            },
+            {
+                id: 29,
+                type: 'letter',
+                title: 'Air Council Regret - Crawford',
+                date: '28 mei 1943',
+                from: 'Air Council',
+                to: 'J. Crawford Esq.',
+                location: 'Selma, Saynuilt, Argyll, Scotland',
+                summary: 'Brief waarin Air Council spijt uitdrukt dat Sergeant Ian Douglas Crawford vermist wordt na luchtoperaties op 30 april/1 mei 1943. Halifax aircraft kwam niet terug van actie tegen vijand.',
+                keywords: 'crawford, air council regret, missing, halifax aircraft, 30 april 1 mei, enemy action'
+            },
+            {
+                id: 30,
+                type: 'record',
+                title: 'Analysis Report - Crawford',
+                date: '1 mei 1943',
+                aircraft: 'Halifax JB 803',
+                reference: 'P.403627/3',
+                summary: 'Identiek analyseformulier als voor anderen: Halifax JB 803 vertrok 30 april/1 mei 1943 voor operationele sortie, niets meer gehoord na vertrek, alle opvarenden vermist.',
+                keywords: 'crawford, analysis report, halifax JB 803, operational sortie, all missing, 30 april'
+            },
+            {
+                id: 31,
+                type: 'telegram',
+                title: 'Service Details - Crawford',
+                date: '3 mei 1943',
+                from: 'Records Gloucester',
+                to: 'Air Ministry',
+                details: 'CRAWFORD (B) IAN DOUGLAS, 634710, SGT, F/ENG, 15/FEB 39, 26/JULY/21, GLASGOW-DENNISTON, 77 SQDN, RAF',
+                summary: 'Telegram met volledige persoonlijke details Crawford: geboren 26 juli 1921, dienst vanaf 15 februari 1939, Flight Engineer, 77 Squadron, foster father in Schotland.',
+                keywords: 'crawford, service details, 26 july 1921, 15 february 1939, flight engineer, foster father'
+            },
+            {
+                id: 32,
+                type: 'record',
+                title: 'German POW Record - Crawford',
+                date: '8 mei 1943',
+                summary: 'Duitse krijgsgevangenendocumenten voor Crawford, inclusief lijst van persoonlijke bezittingen. Stempel "LUFTGAUKOMMANDO HOLLAND" gedateerd 8 MEI 1943.',
+                keywords: 'crawford, duitse document, luftgaukommando, persoonlijke bezittingen, 8 mei 1943'
+            },
+            {
+                id: 33,
+                type: 'form',
+                title: 'German Prison Record - Crawford',
+                date: '1 mei 1943',
+                prisoner: 'Crawford (I. Liebersbridwell Flugzeugf.)',
+                camp: 'Gefangenenlager',
+                nationality: 'England',
+                unit: 'Maschine Halifax',
+                summary: 'Duits gevangenenkamp formulier voor Crawford, nationaliteit Engels, vliegtuigtype Halifax. Gevangen op 1 mei 1943.',
+                keywords: 'crawford, gevangenenkamp, halifax, engels, 1 mei 1943'
+            },
+            {
+                id: 34,
+                type: 'record',
+                title: 'Detailed Burial Investigation Report - Crawford',
+                date: 'Mei 1943',
+                summary: 'Uitgebreid onderzoeksrapport over de crash en begrafenis. Vermeldt dat Mrs. van Rees uit Amsterdam hielp bij identificatie. Lichamen gevonden door burgemeester en politie. Alle lichamen begraven in Muiden op 1-2 mei 1943.',
+                keywords: 'crawford, crash investigation, mrs van rees, amsterdam, burgemeester, politie, mei 1943'
+            },
+
+            // SHEPHERD DOCUMENTS (35-44)
+            {
+                id: 35,
                 type: 'form',
                 title: 'Casualty Action Sheet - Shepherd',
                 date: 'Meerdere data 1943-1944',
                 reference: 'File 6262',
                 summary: 'Casualty Action Sheet voor Sgt Shepherd (929961). Toont administratieve stappen van initial action tot post death action. Vermeldt Squadron 77 en Group 4.',
-                keywords: 'casualty action sheet, shepherd, 929961, squadron 77, group 4'
+                keywords: 'shepherd, 929961, casualty action sheet, squadron 77, group 4'
             },
             {
-                id: 54,
+                id: 36,
                 type: 'letter',
                 title: 'Burial Location Notification - Shepherd',
                 date: '22 mei 1944',
@@ -416,248 +752,468 @@
                 location: '28 Belfort Place, St. Nicholas Road, Great Yarmouth, Norfolk',
                 reference: 'P.403627/43/P.4.B.8',
                 summary: 'Brief aan vader waarin wordt meegedeeld dat Sergeant R. Shepherd begraven ligt in General Cemetery Muiden, Holland. Graven genummerd 80-85 in rij 1.',
-                keywords: 'burial notification, shepherd, muiden cemetery, graves 80-85, great yarmouth'
+                keywords: 'shepherd, burial notification, muiden cemetery, graves 80-85, great yarmouth'
             },
             {
-                id: 55,
+                id: 37,
+                type: 'letter',
+                title: 'Death Confirmation - Shepherd',
+                date: '1 oktober 1943',
+                from: 'B. Bent, for Director of Personal Services',
+                to: 'B. Shepherd Esq.',
+                location: '28 Belfort Place, St. Nicholas Road, Great Yarmouth, Norfolk',
+                reference: 'P.403627/6/43/P.4.B.8',
+                summary: 'Brief waarin bevestiging wordt gegeven van de dood van Sergeant R. Shepherd (929961) gebaseerd op officiële Duitse bron. Begrafenisdetails nog niet bekend.',
+                keywords: 'shepherd, death confirmation, german source, 929961, great yarmouth'
+            },
+            {
+                id: 38,
+                type: 'letter',
+                title: 'Air Council Regret - Shepherd',
+                date: '4 juli 1943',
+                from: 'Casualty Branch, Air Council',
+                to: 'B. Shepherd Esq.',
+                location: '77 Oxford Street, London W.1',
+                reference: 'P.403627/6/43/P.4.A.6',
+                summary: 'Brief waarin Air Council hun spijt uitdrukt dat Sergeant Raymond Shepherd vermist wordt na luchtoperaties op 30 april/1 mei 1943. International Red Cross Committee bevestigt dat hij en vijf anderen werden gedood op 1st May.',
+                keywords: 'shepherd, air council regret, raymond shepherd, missing, international red cross'
+            },
+            {
+                id: 39,
+                type: 'letter',
+                title: 'Missing Notification - Shepherd',
+                date: '28 mei 1943',
+                from: 'Air Council Casualty Branch',
+                to: 'B. Shepherd Esq.',
+                location: '28 Belfort Place, St. Nicholas Road, Great Yarmouth, Norfolk',
+                reference: 'P.403627/6/43/P.4.A.6',
+                summary: 'Brief waarin wordt meegedeeld dat Sergeant Raymond Shepherd vermist wordt na luchtoperaties op 30 april/1 mei 1943. Halifax aircraft waarin hij vloog als air-gunner kwam niet terug van actie tegen vijand.',
+                keywords: 'shepherd, missing notification, raymond shepherd, air gunner, halifax aircraft'
+            },
+            {
+                id: 40,
+                type: 'telegram',
+                title: 'Missing Believed Killed Telegram - Shepherd',
+                date: '6 juni 1943',
+                to: 'B SHEPHERD ESQ, 28 Belfort Place, St Nicholas Rd, Great Yarmouth Norfolk',
+                from: 'Air Ministry Kingsway',
+                reference: 'P.4 CAS',
+                summary: 'Telegram waarin wordt meegedeeld dat volgens informatie ontvangen via International Red Cross Committee, Sgt Raymond Shepherd wordt geacht zijn leven te hebben verloren op 1/5/43 tijdens luchtoperaties.',
+                keywords: 'shepherd, telegram, missing believed killed, international red cross, 1/5/43'
+            },
+            {
+                id: 41,
                 type: 'telegram',
                 title: 'Service Details - Shepherd',
                 date: '3 mei 1943',
                 from: 'Records Gloucester',
                 to: 'Air Ministry',
+                details: 'SHEPHERD (B) RAYMOND (C) 929961 (D) SGT (E) A/G (F) 12/JUNE/40 (G) 2/AUG/21 (H) GREAT YARMOUTH NORFOLK (J) 77 SQDN (K) RAFVR',
                 summary: 'Telegram met volledige service details: Raymond Shepherd, geboren 2 augustus 1921, dienst vanaf 12 juni 1940, Air Gunner, 77 Squadron, vader in Great Yarmouth Norfolk.',
-                keywords: 'service details, raymond shepherd, 2 august 1921, 12 june 1940, air gunner'
-            }
-        ];
+                keywords: 'shepherd, service details, raymond shepherd, 2 august 1921, 12 june 1940, air gunner'
+            },
+            {
+                id: 42,
+                type: 'record',
+                title: 'Analysis Report - Shepherd',
+                date: '1 mei 1943',
+                aircraft: 'Halifax JB 803',
+                reference: 'P.403627/6',
+                summary: 'Identiek analyseformulier als andere crew members: Halifax JB 803 vertrok 30 april/1 mei 1943 voor operationele sortie, niets meer gehoord na vertrek van basis.',
+                keywords: 'shepherd, analysis report, halifax JB 803, operational sortie, all missing'
+            },
+            {
+                id: 43,
+                type: 'record',
+                title: 'Death Presumption Document - Multiple Crew',
+                date: '11 oktober 1943',
+                reference: 'P.403627/43/P.4.B.8',
+                summary: 'Officieel document waarin de dood wordt gepresumed van meerdere crew members: Watson, Crawford, Hannam, Shepherd. Alle presumed dead op 1st May 1943.',
+                keywords: 'shepherd, death presumption, multiple crew, watson, crawford, hannam, 1st may 1943'
+            },
+            {
+                id: 44,
+                type: 'record',
+                title: 'International Red Cross Death List - Shepherd',
+                date: '1943',
+                reference: '403627/43',
+                summary: 'Translated extract from Official German Death Lists door International Red Cross Committee. Vermeldt crew members: Crawford, Parsons, Shepherd, Hannam, Watson.',
+                keywords: 'shepherd, international red cross, death list, crew members, halifax shot down'
+            },
 
-        // Globale variabelen
-        let filteredDocuments = [...documentsData];
-        let currentFilter = 'all';
-
-        // Document type icons
-        const typeIcons = {
-            'letter': '✉️',
-            'telegram': '📟',
-            'form': '📋',
-            'photo': '📷',
-            'record': '📁'
-        };
-
-        // Render documenten
-        function renderDocuments() {
-            const grid = document.getElementById('documentsGrid');
-            
-            if (!grid) {
-                console.error('documentsGrid element not found');
-                return;
-            }
-            
-            grid.innerHTML = '';
-
-            if (filteredDocuments.length === 0) {
-                grid.innerHTML = '<p style="text-align: center; padding: 50px; color: #7f8c8d; font-size: 1.2em;">Geen documenten gevonden voor deze zoekopdracht.</p>';
-                return;
-            }
-
-            filteredDocuments.forEach(function(doc) {
-                const card = document.createElement('div');
-                card.className = 'document-card ' + doc.type;
-                card.onclick = function() { showDocumentDetails(doc); };
-                
-                const icon = typeIcons[doc.type] || '📄';
-
-                card.innerHTML = 
-                    '<div class="card-header">' +
-                        '<div class="card-title">' + icon + ' ' + doc.title + '</div>' +
-                        '<div class="card-date">' + doc.date + '</div>' +
-                    '</div>' +
-                    '<div class="card-body">' +
-                        '<div class="card-details">' +
-                            (doc.from ? '<div class="detail-row"><span class="detail-label">Van:</span><span class="detail-value">' + doc.from + '</span></div>' : '') +
-                            (doc.to ? '<div class="detail-row"><span class="detail-label">Aan:</span><span class="detail-value">' + doc.to + '</span></div>' : '') +
-                            (doc.location ? '<div class="detail-row"><span class="detail-label">Locatie:</span><span class="detail-value">' + doc.location + '</span></div>' : '') +
-                            (doc.reference ? '<div class="detail-row"><span class="detail-label">Referentie:</span><span class="detail-value">' + doc.reference + '</span></div>' : '') +
-                        '</div>' +
-                        '<div class="card-summary">' + doc.summary + '</div>' +
-                    '</div>';
-                
-                grid.appendChild(card);
-            });
-        }
-
-        // Show document details in modal
-        function showDocumentDetails(doc) {
-            const modal = document.getElementById('documentModal');
-            const content = document.getElementById('modalContent');
-            
-            if (!modal || !content) {
-                console.error('Modal elements not found');
-                return;
-            }
-            
-            const icon = typeIcons[doc.type] || '📄';
-
-            content.innerHTML = 
-                '<h2>' + icon + ' ' + doc.title + '</h2>' +
-                '<p style="color: #7f8c8d; margin-bottom: 20px;"><strong>Datum:</strong> ' + doc.date + '</p>' +
-                '<div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">' +
-                    (doc.from ? '<p><strong>Van:</strong> ' + doc.from + '</p>' : '') +
-                    (doc.to ? '<p><strong>Aan:</strong> ' + doc.to + '</p>' : '') +
-                    (doc.location ? '<p><strong>Locatie:</strong> ' + doc.location + '</p>' : '') +
-                    (doc.reference ? '<p><strong>Referentie:</strong> ' + doc.reference + '</p>' : '') +
-                '</div>' +
-                '<div style="background: #e8f6ff; padding: 15px; border-radius: 8px; border-left: 4px solid #3498db;">' +
-                    '<h3>Samenvatting:</h3>' +
-                    '<p style="margin-top: 10px; line-height: 1.5;">' + doc.summary + '</p>' +
-                '</div>' +
-                '<div style="margin-top: 15px;">' +
-                    '<p style="font-size: 0.9em; color: #7f8c8d;"><strong>Trefwoorden:</strong> ' + doc.keywords + '</p>' +
-                '</div>';
-            
-            modal.style.display = 'block';
-        }
-
-        // Close modal
-        function closeModal() {
-            const modal = document.getElementById('documentModal');
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // Filter documenten
-        function filterDocuments(type) {
-            currentFilter = type;
-            if (type === 'all') {
-                filteredDocuments = [...documentsData];
-            } else {
-                filteredDocuments = documentsData.filter(function(doc) {
-                    return doc.type === type;
-                });
-            }
-            applySearch();
-            renderDocuments();
-        }
-
-        // Apply search filter
-        function applySearch() {
-            const searchInput = document.getElementById('searchInput');
-            if (!searchInput) return;
-            
-            const searchTerm = searchInput.value.toLowerCase();
-            if (searchTerm === '') {
-                if (currentFilter === 'all') {
-                    filteredDocuments = [...documentsData];
-                } else {
-                    filteredDocuments = documentsData.filter(function(doc) {
-                        return doc.type === currentFilter;
-                    });
-                }
-            } else {
-                let baseDocuments = currentFilter === 'all' ? documentsData : documentsData.filter(function(doc) {
-                    return doc.type === currentFilter;
-                });
-                
-                filteredDocuments = baseDocuments.filter(function(doc) {
-                    return doc.title.toLowerCase().indexOf(searchTerm) !== -1 ||
-                           doc.summary.toLowerCase().indexOf(searchTerm) !== -1 ||
-                           doc.keywords.toLowerCase().indexOf(searchTerm) !== -1 ||
-                           (doc.from && doc.from.toLowerCase().indexOf(searchTerm) !== -1) ||
-                           (doc.to && doc.to.toLowerCase().indexOf(searchTerm) !== -1) ||
-                           (doc.location && doc.location.toLowerCase().indexOf(searchTerm) !== -1) ||
-                           doc.date.toLowerCase().indexOf(searchTerm) !== -1;
-                });
-            }
-        }
-
-        // Export to CSV
-        function exportToCSV() {
-            const headers = ['ID', 'Type', 'Titel', 'Datum', 'Van', 'Aan', 'Locatie', 'Referentie', 'Samenvatting', 'Trefwoorden'];
-            let csv = headers.join(',') + '\n';
-            
-            documentsData.forEach(function(doc) {
-                const row = [
-                    doc.id,
-                    doc.type,
-                    '"' + doc.title + '"',
-                    '"' + doc.date + '"',
-                    '"' + (doc.from || '') + '"',
-                    '"' + (doc.to || '') + '"',
-                    '"' + (doc.location || '') + '"',
-                    '"' + (doc.reference || '') + '"',
-                    '"' + doc.summary + '"',
-                    '"' + doc.keywords + '"'
-                ];
-                csv += row.join(',') + '\n';
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'halifax_jb803_database.csv';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, initializing...');
-            
-            // Render initial documents
-            renderDocuments();
-            
-            // Search input event
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', function() {
-                    applySearch();
-                    renderDocuments();
-                });
-            }
-
-            // Filter button events
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(function(b) {
-                        b.classList.remove('active');
-                    });
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    // Filter documents
-                    filterDocuments(this.getAttribute('data-filter'));
-                });
-            });
-
-            // Export button event
-            const exportBtn = document.getElementById('exportBtn');
-            if (exportBtn) {
-                exportBtn.addEventListener('click', exportToCSV);
-            }
-
-            // Close modal events
-            const closeBtn = document.getElementById('closeModal');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closeModal);
-            }
-
-            // Click outside modal to close
-            const modal = document.getElementById('documentModal');
-            if (modal) {
-                window.addEventListener('click', function(event) {
-                    if (event.target === modal) {
-                        closeModal();
-                    }
-                });
-            }
-
-            console.log('Initialization complete');
-        });
-    </script>
-</body>
-</html>
+            // SCARFF DOCUMENTS (45-95) - Complete set from latest PDF
+            {
+                id: 45,
+                type: 'form',
+                title: 'Occupational History Form - Scarff',
+                date: '1943',
+                from: 'Thomas Scarff',
+                summary: 'Demobilisatie en rehabilitatie formulier ingevuld door Scarff. Toont zijn achtergrond als Stock Keeper bij Bell Refrigeration Co., geboorte 1-12-19, Manitoba Hospital Association werkgever.',
+                keywords: 'scarff, occupational history, stock keeper, bell refrigeration, manitoba hospital'
+            },
+            {
+                id: 46,
+                type: 'form',
+                title: 'Medical Examination Record - Scarff',
+                date: '13 augustus 1940',
+                summary: 'Complete medische keuring van Thomas Scarff. Lengte 5\'8", gewicht 127 lbs, Category A goedgekeurd. Medische geschiedenis en fysieke conditie gedocumenteerd.',
+                keywords: 'scarff, medical examination, category A, physical condition, 127 lbs'
+            },
+            {
+                id: 47,
+                type: 'form',
+                title: 'RCAF Attestation Paper - Scarff',
+                date: '13 februari 1941',
+                servicenumber: 'R95040',
+                rank: 'AC2 (Aircraftman 2nd Class)',
+                from: 'Winnipeg Manitoba',
+                summary: 'Officieel RCAF inschrijvingsformulier. Thomas Deuel Scarff, R95040, ingeschreven als Air Gunner te Winnipeg. Ouders: Charles Henry Scarff en Daisy Kemp Scarff, 335 Inglewood Street.',
+                keywords: 'scarff, rcaf attestation, r95040, air gunner, winnipeg, charles henry, daisy kemp'
+            },
+            {
+                id: 48,
+                type: 'record',
+                title: 'Service Record Book - Scarff Complete',
+                date: '1941-1943',
+                servicenumber: 'R95040',
+                summary: 'Complete RCAF service record van Thomas Deuel Scarff. Toont progressie van AC2 tot Sergeant, training records, postings, en character assessments. Includes medical history en trade proficiency.',
+                keywords: 'scarff, complete service record, progression, sergeant, training records, character assessment'
+            },
+            {
+                id: 49,
+                type: 'form',
+                title: 'Will and Testament - Scarff',
+                date: '17 februari 1941',
+                testator: 'Thomas Deuel Scarff',
+                beneficiary: 'Mrs. Daisy Scarff (Mother)',
+                executor: 'Mrs. Daisy Scarff',
+                location: 'Winnipeg, Manitoba',
+                summary: 'Testament van Thomas Scarff waarin hij al zijn bezittingen nalaat aan zijn moeder Mrs. Daisy Scarff, 335 Inglewood St, Winnipeg Manitoba.',
+                keywords: 'scarff, will testament, daisy scarff mother, 335 inglewood, winnipeg'
+            },
+            {
+                id: 50,
+                type: 'form',
+                title: 'Estate Administration Form - Scarff',
+                date: 'December 1943',
+                reference: 'H.Q. 1722-S-6927 ED 273',
+                summary: 'Uitgebreid formulier voor estate administratie. Details van bankrekeningen (Bank of Nova Scotia), levensverzekering (Imperial Life Insurance $2080), en familie informatie.',
+                keywords: 'scarff, estate administration, bank nova scotia, imperial life insurance, 2080 dollars'
+            },
+            {
+                id: 51,
+                type: 'record',
+                title: 'Family Tree Declaration - Scarff',
+                date: '1944',
+                summary: 'Complete familie boom declaratie. Vader: Charles Henry Scarff (59), Moeder: Daisy Kemp Scarff (58), Broer: Benjamin George Scarff (21), Zusters: Gertrude Ethel Williams (30) en Mabel Alice Arnold (29).',
+                keywords: 'scarff, family tree, charles henry, daisy kemp, benjamin george, gertrude ethel, mabel alice'
+            },
+            {
+                id: 52,
+                type: 'form',
+                title: 'Certificate of Presumption of Death - Scarff',
+                date: '8 oktober 1943',
+                reference: 'R.C.A.F. G. 65',
+                from: 'Wing Commander R.C.A.F. Records Officer',
+                summary: 'Officieel certificaat waarin Thomas Deuel Scarff (R95040) presumed dead wordt verklaard op 1 mei 1943 na uitgebreid onderzoek.',
+                keywords: 'scarff, presumption death certificate, r95040, 1 mei 1943, wing commander'
+            },
+            {
+                id: 53,
+                type: 'record',
+                title: 'Complete Crew List - Halifax JB 803',
+                date: '1 mei 1943',
+                from: 'No.77 Squadron RAF',
+                location: 'Elvington, Near York',
+                reference: '778/409/7/P.1',
+                summary: 'Volledige crew lijst Halifax II JB.803: Sgt Watson (Pilot-Captain), Sgt Crawford (Flight Engineer), F/O A.E. Parsons (Navigator), Sgt Hannam (Navigator B/Air Bomber), Sgt Louth (WO/AG), Sgt Shepherd (Air Gunner), Sgt Scarff (Air Gunner).',
+                keywords: 'complete crew list, halifax II JB 803, seven crew members, elvington, 77 squadron'
+            },
+            {
+                id: 54,
+                type: 'form',
+                title: 'Official Death Registration - Scarff',
+                date: 'May 1943',
+                location: 'Overseas',
+                cause: 'Presumed killed during air operations',
+                summary: 'Officiële overlijdensregistratie van Thomas Deuel Scarff. Cause of death: presumed killed during air operations. Informant: Records Officer voor Daisy K. Scarff.',
+                keywords: 'scarff, death registration, air operations, daisy k scarff, records officer'
+            },
+            {
+                id: 55,
+                type: 'record',
+                title: 'Personal Effects Inventory - Scarff',
+                date: 'January 1944',
+                reference: 'P.27401',
+                summary: 'Uitgebreide inventaris van persoonlijke bezittingen: cardboard carton met fotoboek, camera, kleding, correspondentie, Bible, P.O. Savings Bank Book No. 9897. Forward naar A.M. by Unit.',
+                keywords: 'scarff, personal effects, camera, bible, savings bank book 9897, correspondence'
+            },
+            {
+                id: 56,
+                type: 'letter',
+                title: 'Operational Wings Certificate Letter - Scarff',
+                date: '4 maart 1947',
+                from: 'Wing Commander for Chief of Air Staff',
+                to: 'Mrs. Daisy Scarff',
+                location: 'Ottawa Canada',
+                summary: 'Brief waarbij de Operational Wings Certificate wordt toegezonden aan moeder als erkenning van de gallant services van Flight Sergeant T.D. Scarff.',
+                keywords: 'scarff, operational wings certificate, gallant services, flight sergeant, ottawa'
+            },
+            {
+                id: 57,
+                type: 'form',
+                title: 'War Service Gratuity Statement - Scarff',
+                date: '25 juni 1945',
+                amount: '$324.35',
+                payee: 'Receiver General of Canada, Director of Estates',
+                summary: 'War Service Gratuity statement voor Thomas D. Scarff (R95040). Total amount $324.35 bestaande uit service gratuity ($195.00), overseas service ($73.75) en supplement ($55.60).',
+                keywords: 'scarff, war service gratuity, 324.35 dollars, r95040, overseas service'
+            },
+            {
+                id: 58,
+                type: 'form',
+                title: 'Wireless Operator Training Report - Scarff',
+                date: '1942',
+                course: 'Wireless School',
+                rank: 'LAC (Leading Aircraftman)',
+                summary: 'Training report voor Wireless Operator (Air Gunner) training. Shows ground training results in radio equipment, morse code, signals organization, en armament.',
+                keywords: 'scarff, wireless operator training, radio equipment, morse code, signals'
+            },
+            {
+                id: 59,
+                type: 'form',
+                title: 'Air Gunner Training Report - Scarff',
+                date: '25 mei 1942',
+                school: 'Bombing & Gunnery School',
+                badge_authorized: '25.5.42',
+                results: 'Position 12 in Class of 30, Pass',
+                summary: 'Part II Armament Training report. Air Gunnery Results, Total Rounds Fired: Ground 550, Air to Ground 300, Air to Air 1300 Tracer 300. Authorized to wear Air Gunner Badge 25.5.42.',
+                keywords: 'scarff, air gunner training, bombing gunnery school, air gunner badge, 25 mei 1942'
+            },
+            {
+                id: 60,
+                type: 'form',
+                title: 'Pay Record - Scarff',
+                date: '1941-1943',
+                details: 'Complete pay records showing progression from AC2 to Sergeant rates',
+                summary: 'Uitgebreide pay records van Thomas Scarff showing rates, assignments, dependents allowance entries, en banking arrangements met detailed financial information.',
+                keywords: 'scarff, pay records, ac2 to sergeant, dependents allowance, banking arrangements'
+            },
+            {
+                id: 61,
+                type: 'form',
+                title: 'Service Book - RCAF A.47',
+                date: '1941-1943',
+                servicenumber: 'R95040',
+                summary: 'Officieel RCAF Service Book van Thomas Deuel Scarff. Contains leave records, medical classifications, blood group information, night visual capacity tests.',
+                keywords: 'scarff, rcaf service book, leave records, medical classifications, blood group'
+            },
+            {
+                id: 62,
+                type: 'form',
+                title: 'Medal Award Card - Scarff',
+                date: 'Post-war',
+                medals: 'Multiple service medals',
+                summary: 'Service Award Card IBM punched card systeem showing medal entitlements en ribbon issued status voor Thomas D Scarff R95040.',
+                keywords: 'scarff, medal award card, service medals, ribbon issued, ibm card'
+            },
+            {
+                id: 63,
+                type: 'record',
+                title: 'Casualty Cable List - Scarff',
+                date: '1943',
+                reference: 'H.Q. FILE 1022-S-6927',
+                summary: 'Cable casualty list entry showing: Date of Death 1-May-43, Mother Living: yes, Wife: N/A, Ministerial Card: 17-5-43, Royal Message, Memorial Cross.',
+                keywords: 'scarff, casualty cable list, 1 may 43, mother living, memorial cross'
+            },
+            {
+                id: 64,
+                type: 'record',
+                title: 'Complete Training Record - Scarff',
+                date: '1941-1943',
+                locations: 'Multiple Canadian training bases',
+                summary: 'Complete training progression record showing postings through various Canadian training establishments, trade classifications, character assessments, en medical history.',
+                keywords: 'scarff, complete training record, canadian bases, trade classifications, character assessments'
+            },
+            {
+                id: 65,
+                type: 'form',
+                title: 'Air Crew Enlistment Agreement - Scarff',
+                date: '12 februari 1941',
+                category: 'Air Gunner (Sp Gr)',
+                summary: 'Special Reserve Air Crew Enlistment Agreement. Acknowledgment dat hij other than Air Crew duties kan uitvoeren until R.C.A.F. in positie is om training te beginnen.',
+                keywords: 'scarff, air crew enlistment agreement, air gunner special grade, special reserve'
+            },
+            {
+                id: 66,
+                type: 'record',
+                title: 'Interview Report - Scarff',
+                date: '1940',
+                interviewer: 'P/O (P.H.W.Severin)',
+                recommendation: 'Observer',
+                summary: 'RCAF Special Reserve Administration interview report. Academic standing equivalent Grade XI, keen anxious to serve, fully qualified for commissioned rank, recommended for Observer.',
+                keywords: 'scarff, interview report, observer recommendation, grade xi, commissioned rank'
+            },
+            {
+                id: 67,
+                type: 'form',
+                title: 'Medical Certificate - Scarff',
+                date: '13 augustus 1940',
+                category: 'Category A',
+                examining_officer: 'Medical Officer RCAMC',
+                summary: 'Certificate of Medical Examination Part 3: Candidate examined in accordance with Physical Standards and Instructions, considered fit for Category A.',
+                keywords: 'scarff, medical certificate, category A, physical standards, examining officer'
+            },
+            {
+                id: 68,
+                type: 'record',
+                title: 'Flying Training Records - Scarff',
+                date: '1942',
+                aircraft_types: 'Multi-engine training aircraft',
+                summary: 'Individual Record of Flying showing training on various aircraft types, crew duties as Air Gunner, total flying hours accumulated during training period.',
+                keywords: 'scarff, flying training records, multi-engine, air gunner duties, flying hours'
+            },
+            {
+                id: 69,
+                type: 'form',
+                title: 'Character and Trade Assessment - Scarff',
+                date: '1942-1943',
+                assessments: 'Multiple periodic assessments',
+                summary: 'Section 4 Character and Trade Proficiency assessments. Shows progression through ranks with character ratings en trade proficiency markings throughout service.',
+                keywords: 'scarff, character assessment, trade proficiency, rank progression, periodic reviews'
+            },
+            {
+                id: 70,
+                type: 'record',
+                title: 'Leave and Travel Records - Scarff',
+                date: '1941-1943',
+                summary: 'Complete leave record showing 48-hour passes, travel warrants issued, en permissions granted during training and operational service period.',
+                keywords: 'scarff, leave records, 48 hour passes, travel warrants, permissions'
+            },
+            {
+                id: 71,
+                type: 'form',
+                title: 'Course Results - Scarff',
+                date: '1942',
+                courses: 'Gunnery and wireless training',
+                summary: 'Course completion records showing results in various training subjects including gunnery accuracy, wireless proficiency, en overall training assessments.',
+                keywords: 'scarff, course results, gunnery training, wireless proficiency, training assessments'
+            },
+            {
+                id: 72,
+                type: 'record',
+                title: 'Medical History - Scarff',
+                date: '1940-1943',
+                summary: 'Complete medical history including examinations in red ink, hospitalization records in black ink, medical categories, en health assessments throughout service.',
+                keywords: 'scarff, medical history, examinations, hospitalization, health assessments'
+            },
+            {
+                id: 73,
+                type: 'form',
+                title: 'Service Machines Flown - Scarff',
+                date: '1942-1943',
+                aircraft: 'Training and operational aircraft',
+                summary: 'Record of service machines flown during training period en operational service, including aircraft types en flight experience gained.',
+                keywords: 'scarff, service machines flown, aircraft types, flight experience, operational service'
+            },
+            {
+                id: 74,
+                type: 'record',
+                title: 'Postings and Attachments - Scarff',
+                date: '1941-1943',
+                units: 'Multiple RCAF training units and 77 Squadron',
+                summary: 'Complete posting record showing progression through RCAF training system and final assignment to 77 Squadron for operational duties.',
+                keywords: 'scarff, postings attachments, rcaf training units, 77 squadron, operational duties'
+            },
+            {
+                id: 75,
+                type: 'form',
+                title: 'Honours and Awards Record - Scarff',
+                date: 'Post-1943',
+                awards: 'Operational Wings, War Service medals',
+                summary: 'Record of honours en awards including post-humous Operational Wings certificate en various war service medals awarded to estate.',
+                keywords: 'scarff, honours awards, operational wings, war service medals, posthumous'
+            },
+            {
+                id: 76,
+                type: 'record',
+                title: 'Banking and Financial Records - Scarff',
+                date: '1941-1943',
+                accounts: 'Bank of Nova Scotia, Savings accounts',
+                summary: 'Financial records showing banking arrangements, allotments, savings account details (P.O. Savings Bank Book No. 9897), en financial planning.',
+                keywords: 'scarff, banking records, bank nova scotia, savings account 9897, financial planning'
+            },
+            {
+                id: 77,
+                type: 'form',
+                title: 'Insurance Policy Details - Scarff',
+                date: '1941',
+                company: 'Imperial Life Insurance Co.',
+                amount: '$2080.00',
+                beneficiary: 'Daisy K. Scarff (Mother)',
+                summary: 'Life insurance policy documentation showing Imperial Life Insurance Co. policy worth $2080.00 with mother as beneficiary.',
+                keywords: 'scarff, life insurance, imperial life, 2080 dollars, daisy k scarff beneficiary'
+            },
+            {
+                id: 78,
+                type: 'record',
+                title: 'Education and Training Background - Scarff',
+                date: '1940',
+                education: 'Grade XI equivalent, Business College',
+                summary: 'Educational background showing Grade XI equivalent standing, Business College course with high marks, suitable for aircrew training.',
+                keywords: 'scarff, education background, grade xi, business college, high marks'
+            },
+            {
+                id: 79,
+                type: 'form',
+                title: 'Employment History - Scarff',
+                date: '1940-1941',
+                employer: 'Bell Refrigeration Co.',
+                position: 'Stock Keeper',
+                summary: 'Civil employment history showing work as Stock Keeper for Bell Refrigeration Co., Winnipeg, previous to RCAF enlistment.',
+                keywords: 'scarff, employment history, bell refrigeration, stock keeper, winnipeg'
+            },
+            {
+                id: 80,
+                type: 'record',
+                title: 'Sports and Recreation Record - Scarff',
+                date: '1940',
+                activities: 'Hockey, Track, Baseball, Swimming, Photography, Bowling, Tennis',
+                summary: 'Personal interests en recreational activities including extensive sports participation and photography hobby.',
+                keywords: 'scarff, sports recreation, hockey track baseball, swimming photography, bowling tennis'
+            },
+            {
+                id: 81,
+                type: 'form',
+                title: 'Next of Kin Information - Scarff',
+                date: '1941-1943',
+                primary: 'Mrs. Daisy K. Scarff (Mother)',
+                address: '335 Inglewood Street, St. James, Manitoba',
+                summary: 'Complete next of kin information including address changes, contact details, en relationship verification for casualty notification purposes.',
+                keywords: 'scarff, next of kin, daisy k scarff mother, 335 inglewood street, st james manitoba'
+            },
+            {
+                id: 82,
+                type: 'record',
+                title: 'Training School Reports - Scarff',
+                date: '1941-1942',
+                schools: 'Wireless School, Bombing & Gunnery School',
+                summary: 'Reports from various training schools including wireless operator training en bombing and gunnery school with performance evaluations.',
+                keywords: 'scarff, training school reports, wireless school, bombing gunnery school, performance'
+            },
+            {
+                id: 83,
+                type: 'form',
+                title: 'Trade Classification History - Scarff',
+                date: '1941-1943',
+                progression: 'AC2 to Sergeant Air Gunner',
+                summary: 'Complete trade classification history showing progression from Aircraftman 2nd Class to Sergeant, with air gunner specialization.',
+                keywords: 'scarff, trade classification, ac2 to sergeant, air gunner specialization'
+            },
+            {
+                id: 84,
+                type: 'record',
+                title: 'Physical Training and Sports Record - Scarff',
+                date: '1941-1942',
+                activities: 'Military PT, sports participation',
+                summary: 'Physical training records including
