@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergeant Leon Hannam - Document Database</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grain" width="100" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="%23ffffff" opacity="0.1"/><circle cx="30" cy="5" r="1" fill="%23ffffff" opacity="0.08"/><circle cx="50" cy="15" r="1.2" fill="%23ffffff" opacity="0.06"/><circle cx="70" cy="8" r="0.8" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="12" r="1.1" fill="%23ffffff" opacity="0.07"/></pattern></defs><rect width="100" height="20" fill="url(%23grain)"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card.documents { border-color: #e74c3c; }
+        .stat-card.letters { border-color: #3498db; }
+        .stat-card.photos { border-color: #2ecc71; }
+        .stat-card.forms { border-color: #f39c12; }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .documents .stat-number { color: #e74c3c; }
+        .letters .stat-number { color: #3498db; }
+        .photos .stat-number { color: #2ecc71; }
+        .forms .stat-number { color: #f39c12; }
+
+        .controls {
+            padding: 30px;
+            background: white;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px 15px 50px;
+            border: 2px solid #bdc3c7;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.2);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-left: 5px solid #3498db;
+        }
+
+        .document-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .document-card.letter { border-left-color: #3498db; }
+        .document-card.telegram { border-left-color: #e74c3c; }
+        .document-card.form { border-left-color: #f39c12; }
+        .document-card.photo { border-left-color: #2ecc71; }
+        .document-card.record { border-left-color: #9b59b6; }
+
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .card-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-details {
+            margin-bottom: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            min-width: 80px;
+            color: #34495e;
+        }
+
+        .detail-value {
+            color: #2c3e50;
+        }
+
+        .card-summary {
+            color: #5d6d7e;
+            font-style: italic;
+            line-height: 1.5;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: #3498db;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .documents-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        .export-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Halifax JB 803 Crew Database</h1>
+            <p>WOII Complete Archive • Sgt Hannam (1383305) • Sgt Crawford (634710) • Sgt Scarff (R.95040) • RAF Squadron 77 • 1 Mei 1943</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card documents">
+                <div class="stat-number">27</div>
+                <div>Totaal Documenten</div>
+            </div>
+            <div class="stat-card letters">
+                <div class="stat-number">15</div>
+                <div>Brieven & Telegrammen</div>
+            </div>
+            <div class="stat-card photos">
+                <div class="stat-number">2</div>
+                <div>Foto's</div>
+            </div>
+            <div class="stat-card forms">
+                <div class="stat-number">10</div>
+                <div>Officiële Formulieren</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Zoek in documenten... (naam, datum, locatie, inhoud)">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Alles</button>
+                <button class="filter-btn" data-filter="letter">Brieven</button>
+                <button class="filter-btn" data-filter="telegram">Telegrammen</button>
+                <button class="filter-btn" data-filter="form">Formulieren</button>
+                <button class="filter-btn" data-filter="photo">Foto's</button>
+            </div>
+            <button class="export-btn" onclick="exportToCSV()">📥 Export naar CSV</button>
+        </div>
+
+        <div class="documents-grid" id="documentsGrid">
+            <!-- Documents worden hier gegenereerd door JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const documents = [
+            {
+                id: 1,
+                type: 'letter',
+                title: 'Officiële Mededeling Overlijden',
+                date: '16 februari 1948',
+                from: 'A.W. Livingston',
+                to: 'Mrs. Bernadette Sammarco',
+                location: '2 Seville Street',
+                reference: 'P.403627/43/S.14 Cas.B2.',
+                summary: 'Officiële bevestiging dat Sergeant Leon Hannam (1383305) begraven ligt in Muiden General Cemetery, Holland. Vader werd in mei 1944 voor het eerst op de hoogte gesteld.',
+                keywords: 'overlijden, begraven, muiden, holland, vader, mei 1944'
+            },
+            {
+                id: 2,
+                type: 'letter',
+                title: 'Brief van Bernadette aan Sirs',
+                date: '13 december 1947',
+                from: 'Bernadette Sammarco',
+                to: 'Sirs',
+                location: '41 Theberton Street, Islington',
+                summary: 'Bernadette vraagt om hulp bij het vinden van informatie over haar vriend Leon Hannam. Ze schrijft dat ze weet dat hij 20 jaar oud was en vermist wordt sinds 1 mei 1943.',
+                keywords: 'bernadette, vriend, vermist, 20 jaar oud, 1 mei 1943'
+            },
+            {
+                id: 3,
+                type: 'letter',
+                title: 'Air Ministry Response',
+                date: '6 januari 1947',
+                from: 'J.N. Stacey, Squadron Leader',
+                to: 'Mrs. Bernadette Sammarco',
+                reference: 'P-7/8-41A',
+                summary: 'Brief waarin wordt uitgelegd dat Leon Hannam een Engelsman was in de Royal Air Force, vliegend in een Royal Air Force aircraft. De brief werd doorgestuurd naar de juiste afdeling.',
+                keywords: 'royal air force, engelsman, aircraft, doorgestuurd'
+            },
+            {
+                id: 4,
+                type: 'form',
+                title: 'Air Ministry Minute Sheet',
+                date: '3 juni 1943',
+                reference: 'P.403627/43',
+                summary: 'Interne notitie betreffende Sgt Leon Hannam. Vermeldt correspondentie en mogelijke verdere actie.',
+                keywords: 'air ministry, interne notitie, correspondentie'
+            },
+            {
+                id: 5,
+                type: 'record',
+                title: 'RAF Service Record',
+                date: '5 maart 1943',
+                servicenumber: '1383305',
+                name: 'HANNAM Leon',
+                rank: 'SGT',
+                unit: 'R.A.F.(V.R.)',
+                details: '775920N 1383305',
+                location: 'MUIDEN GEN',
+                burial: 'HOLLAND 89',
+                authority: 'R.4 Cas.1130/267 SSP/4708',
+                nextofkin: 'L. HANNAM ESQ. 33 PARKFIELD STREET ISLINGTON LONDON N.1',
+                keywords: 'service record, muiden, holland, parkfield street'
+            },
+            {
+                id: 6,
+                type: 'photo',
+                title: 'Begraafplaats Foto 1',
+                date: 'Onbekend',
+                summary: 'Zwart-wit foto van een begraafplaats met graven en bloemen, mogelijk Muiden General Cemetery waar Leon Hannam begraven ligt.',
+                keywords: 'begraafplaats, graven, bloemen, muiden'
+            },
+            {
+                id: 7,
+                type: 'photo',
+                title: 'Begraafplaats Foto 2',
+                date: 'Onbekend',
+                summary: 'Tweede zwart-wit foto van de begraafplaats, toont meer grafstenen en de omgeving.',
+                keywords: 'begraafplaats, grafstenen, omgeving'
+            },
+            {
+                id: 8,
+                type: 'record',
+                title: 'German POW Record - Hannam',
+                date: '8 mei 1943',
+                summary: 'Duits krijgsgevangenen document (Nachlaßsachen des Sgt. Hannam) met persoonlijke bezittingen lijst. Bevat stempel "LUFTGAUKOMMANDO HOLLAND" gedateerd 8 MEI 1943.',
+                keywords: 'duitse document, krijgsgevangene, persoonlijke bezittingen, luftgaukommando, holland'
+            },
+            {
+                id: 9,
+                type: 'record',
+                title: 'German POW Record - Crawford',
+                date: 'Mei 1943',
+                summary: 'Vergelijkbaar Duits document voor Sgt. Crawford, toont lijst van persoonlijke bezittingen van krijgsgevangenen.',
+                keywords: 'duitse document, crawford, persoonlijke bezittingen'
+            },
+            {
+                id: 10,
+                type: 'form',
+                title: 'German Prison Camp Record',
+                date: '4 mei 1943',
+                prisoner: 'Hannam L.',
+                camp: 'Gefangenenlager: 5715',
+                nationality: 'Engla-e',
+                unit: 'Maschine Halifax',
+                material_number: '1383315',
+                summary: 'Duits gevangenenkamp formulier voor gevangene Hannam L., nationaliteit Engels, vliegtuig type Halifax.',
+                keywords: 'gevangenenkamp, halifax, engels, maschine'
+            },
+            {
+                id: 11,
+                type: 'letter',
+                title: 'Casualty Branch Notification',
+                date: '22 mei 1944',
+                from: 'S.W. Wright, Director of Personal Services',
+                to: 'L. Hannam Esq.',
+                reference: 'P.403627/43/S.4.3.4',
+                location: '33 Parkfield Street, Islington',
+                summary: 'Brief aan vader van Leon Hannam waarin wordt meegedeeld dat zijn zoon Sergeant L. Hannam (RAF) begraven ligt in General Cemetery, Muiden, Holland. Graven genummerd 80 tot 85 in rij 1.',
+                keywords: 'casualty branch, vader, muiden cemetery, graven 80-85'
+            },
+            {
+                id: 12,
+                type: 'telegram',
+                title: 'Missing Believed Killed Telegram',
+                date: '18 juni 1943',
+                to: 'L. HANNAM ESQ, 33 Parkfield St, Islington London N1',
+                from: 'Air Ministry Kingsway',
+                summary: 'Telegram met mededeling dat Sergeant Leon Hannam wordt vermist en vermoedelijk omgekomen is op 1/5/43 tijdens luchtoperaties. Uitdrukking van medeleven van de Air Council.',
+                keywords: 'telegram, missing believed killed, luchtoperaties, air council'
+            },
+            {
+                id: 13,
+                type: 'letter',
+                title: 'Air Council Expression of Regret',
+                date: '26 mei 1943',
+                from: 'Casualty Branch',
+                to: 'L. Hannam Esq.',
+                location: '33 Parkfield Street, Islington',
+                summary: 'Brief waarin de Air Council hun spijt uitdrukt over het feit dat Sergeant Leon Hannam vermist wordt na luchtoperaties op 30 april/1 mei 1943. Halifax aircraft waarin hij vloog als navigator/air bomber kwam niet terug.',
+                keywords: 'air council, halifax aircraft, navigator, air bomber, 30 april'
+            },
+            {
+                id: 14,
+                type: 'letter',
+                title: 'Confirmation of Death',
+                date: '1 oktober 1943',
+                from: 'Director of Personal Services',
+                to: 'L. Hannam Esq.',
+                reference: 'P.403627/43/S.4.3.3',
+                summary: 'Bevestiging ontvangen van officiële Duitse bron dat Sergeant L. Hannam (1383305) is overleden. Details over plaats van begraving nog niet verstrekt, maar zullen later worden meegedeeld.',
+                keywords: 'bevestiging overlijden, duitse bron, plaats begraving'
+            },
+            {
+                id: 15,
+                type: 'form',
+                title: 'Casualty Action Sheet',
+                date: 'Meerdere data 1943-1945',
+                reference: '503627',
+                summary: 'Administratief formulier dat de verschillende stappen bijhoudt in de casualty procedure: van vermist rapport tot bevestiging overlijden en notification aan familie.',
+                keywords: 'casualty procedure, administratie, vermist rapport'
+            },
+            {
+                id: 16,
+                type: 'record',
+                title: 'Analysis from Circumstantial Reports',
+                date: '1 mei 1943',
+                aircraft: 'Halifax JB 803',
+                reference: 'P.403627/4',
+                summary: 'Het vliegtuig vertrok op de nacht van 30 april/1 mei 1943 voor operationele sortie. Vanaf vertrek van de basis is niets meer gehoord van het vliegtuig. Alle opvarenden vermist.',
+                keywords: 'halifax JB 803, operationele sortie, alle opvarenden vermist'
+            },
+            {
+                id: 17,
+                type: 'telegram',
+                title: 'Records Gloucester Communication',
+                date: '3 mei 1943',
+                from: 'Records Gloucester',
+                to: 'Air Ministry Kingsway',
+                reference: '1669/G2B/2441',
+                details: 'HANNAM (B) LEON, 1383305, SGT, NAV/A/B, 31/DEC/40, 7/NOV/20, ISLINGTON, 77 SQUADRON, RAFVR, FATHER L HANNAM ESQ 33 PARKFIELD STREET ISLINGTON LONDON N1',
+                summary: 'Telegram met volledige persoonlijke details van Leon Hannam: geboortedatum 7 november 1920, dienst vanaf 31 december 1940, 77 Squadron, navigator/air bomber.',
+                keywords: 'persoonlijke details, 7 november 1920, 31 december 1940, navigator'
+            }
+        ];
+
+        let filteredDocuments = [...documents];
+        let currentFilter = 'all';
+
+        function renderDocuments() {
+            const grid = document.getElementById('documentsGrid');
+            grid.innerHTML = '';
+
+            filteredDocuments.forEach(doc => {
+                const card = document.createElement('div');
+                card.className = `document-card ${doc.type}`;
+                
+                const typeIcon = {
+                    'letter': '✉️',
+                    'telegram': '📟',
+                    'form': '📋',
+                    'photo': '📷',
+                    'record': '📁'
+                };
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-title">${typeIcon[doc.type]} ${doc.title}</div>
+                        <div class="card-date">${doc.date}</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-details">
+                            ${doc.from ? `<div class="detail-row"><span class="detail-label">Van:</span><span class="detail-value">${doc.from}</span></div>` : ''}
+                            ${doc.to ? `<div class="detail-row"><span class="detail-label">Aan:</span><span class="detail-value">${doc.to}</span></div>` : ''}
+                            ${doc.location ? `<div class="detail-row"><span class="detail-label">Locatie:</span><span class="detail-value">${doc.location}</span></div>` : ''}
+                            ${doc.reference ? `<div class="detail-row"><span class="detail-label">Referentie:</span><span class="detail-value">${doc.reference}</span></div>` : ''}
+                            ${doc.servicenumber ? `<div class="detail-row"><span class="detail-label">Service Nr:</span><span class="detail-value">${doc.servicenumber}</span></div>` : ''}
+                            ${doc.aircraft ? `<div class="detail-row"><span class="detail-label">Vliegtuig:</span><span class="detail-value">${doc.aircraft}</span></div>` : ''}
+                        </div>
+                        <div class="card-summary">${doc.summary}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterDocuments(type) {
+            currentFilter = type;
+            if (type === 'all') {
+                filteredDocuments = [...documents];
+            } else {
+                filteredDocuments = documents.filter(doc => doc.type === type);
+            }
+            applySearch();
+            renderDocuments();
+        }
+
+        function applySearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm === '') {
+                if (currentFilter === 'all') {
+                    filteredDocuments = [...documents];
+                } else {
+                    filteredDocuments = documents.filter(doc => doc.type === currentFilter);
+                }
+            } else {
+                let baseDocuments = currentFilter === 'all' ? documents : documents.filter(doc => doc.type === currentFilter);
+                filteredDocuments = baseDocuments.filter(doc => 
+                    doc.title.toLowerCase().includes(searchTerm) ||
+                    doc.summary.toLowerCase().includes(searchTerm) ||
+                    doc.keywords.toLowerCase().includes(searchTerm) ||
+                    (doc.from && doc.from.toLowerCase().includes(searchTerm)) ||
+                    (doc.to && doc.to.toLowerCase().includes(searchTerm)) ||
+                    (doc.location && doc.location.toLowerCase().includes(searchTerm)) ||
+                    doc.date.toLowerCase().includes(searchTerm)
+                );
+            }
+        }
+
+        function exportToCSV() {
+            const headers = ['ID', 'Type', 'Titel', 'Datum', 'Van', 'Aan', 'Locatie', 'Referentie', 'Samenvatting', 'Trefwoorden'];
+            let csv = headers.join(',') + '\n';
+            
+            documents.forEach(doc => {
+                const row = [
+                    doc.id,
+                    doc.type,
+                    `"${doc.title}"`,
+                    `"${doc.date}"`,
+                    `"${doc.from || ''}"`,
+                    `"${doc.to || ''}"`,
+                    `"${doc.location || ''}"`,
+                    `"${doc.reference || ''}"`,
+                    `"${doc.summary}"`,
+                    `"${doc.keywords}"`
+                ];
+                csv += row.join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'hannam_documents.csv');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', () => {
+            applySearch();
+            renderDocuments();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterDocuments(btn.dataset.filter);
+            });
+        });
+
+        // Initial render
+        renderDocuments();
+    </script>
+</body>
+</html>
